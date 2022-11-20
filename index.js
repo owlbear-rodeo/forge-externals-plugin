@@ -19,11 +19,8 @@ class ForgeExternalsPlugin {
     this._dir = dir;
   };
 
-  getHook(hookName) {
-    switch (hookName) {
-      case "resolveForgeConfig":
-        return this.resolveForgeConfig;
-    }
+  getHooks() {
+    return { resolveForgeConfig: this.resolveForgeConfig };
   }
 
   resolveForgeConfig = async (forgeConfig) => {
@@ -62,7 +59,10 @@ class ForgeExternalsPlugin {
       }
 
       for (const module of foundModules) {
-        if (file.startsWith(`/node_modules/${module}`) || file.startsWith(`/node_modules/${module.split('/')[0]}`)) {
+        if (
+          file.startsWith(`/node_modules/${module}`) ||
+          file.startsWith(`/node_modules/${module.split("/")[0]}`)
+        ) {
           return false;
         }
       }
