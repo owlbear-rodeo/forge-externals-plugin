@@ -1,6 +1,6 @@
 {
-  "name": "@timfish/forge-externals-plugin",
-  "version": "0.1.2",
+  "name": "@owlbear-rodeo/forge-externals-plugin",
+  "version": "0.1.3",
   "description": "",
   "main": "index.js",
   "scripts": {
