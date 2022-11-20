@@ -1,4 +1,6 @@
-# @timfish/forge-externals-plugin
+# @owlbear-rodeo/forge-externals-plugin
+
+Forked from [https://github.com/timfish/forge-externals-plugin](https://github.com/timfish/forge-externals-plugin)
 
 When using Electron with Webpack, the easiest way to support native
 modules is to add them to Webpack `externals` configuration. This tells webpack
@@ -34,9 +36,9 @@ packaged app.
       "packagerConfig": {},
       "makers": [],
       "plugins": [
-        [
-          "@electron-forge/plugin-webpack",
-          {
+        {
+          "name": "@electron-forge/plugin-webpack",
+          "config": {
             "mainConfig": "./webpack.main.config.js",
             "renderer": {
               "config": "./webpack.renderer.config.js",
@@ -49,14 +51,14 @@ packaged app.
               ]
             }
           }
-        ],
-        [
-          "@timfish/forge-externals-plugin",
-          {
+        },
+        {
+          "name": "@owlbear-rodeo/forge-externals-plugin",
+          "config": {
             "externals": ["native-hello-world"],
             "includeDeps": true
           }
-        ]
+        }
       ]
     }
   },
